@@ -208,3 +208,7 @@ main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
 }
+
+.carousel-container {
+  padding: 0  0 64px 0 !important;
+}
