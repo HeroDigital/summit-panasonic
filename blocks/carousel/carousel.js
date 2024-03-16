@@ -10,7 +10,8 @@ function updateActiveSlide(slide) {
   // Enable or disable navigation buttons based on the current slide index
   const prevButton = block.querySelector(".slide-prev");
   const nextButton = block.querySelector(".slide-next");
-
+  // const isMobileView = window.innerWidth < 768; // Adjust the threshold as needed
+  // console.log(isMobileView, 'isMobileView');
   if (slideIndex === 0) {
     prevButton.setAttribute("disabled", "true");
     nextButton.removeAttribute("disabled");
