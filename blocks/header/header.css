@@ -1,6 +1,6 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: var(--background-color--header);
   width: 100%;
   z-index: 2;
   position: fixed;
@@ -17,7 +17,7 @@ header nav {
   margin: auto;
   max-width: 1264px;
   height: var(--nav-height);
-  padding: 0 1rem;
+  padding: 0 1rem 0 0;
   font-family: var(--body-font-family);
 }
 
@@ -32,7 +32,7 @@ header nav[aria-expanded="true"] {
 
 @media (width >= 600px) {
   header nav {
-    padding: 0 2rem;
+    padding: 0 2rem 0 0;
   }
 }
 
@@ -60,22 +60,23 @@ header nav a:any-link {
 /* hamburger */
 header nav .nav-hamburger {
   grid-area: hamburger;
-  height: 22px;
   display: flex;
   align-items: center;
 }
 
 header nav .nav-hamburger button {
-  height: 22px;
+  height: var(--nav-height);
+  width: 66px;
   margin: 0;
   border: 0;
   border-radius: 0;
-  padding: 0;
-  background-color: var(--background-color);
-  color: inherit;
+  padding: 0 20px;
+  background-color: var(--background-color-header);
+  color: white;
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 header nav .nav-hamburger-icon,
@@ -84,7 +85,7 @@ header nav .nav-hamburger-icon::after {
   box-sizing: border-box;
   display: block;
   position: relative;
-  width: 20px;
+  width: 100%;
 }
 
 header nav .nav-hamburger-icon::before,
@@ -103,11 +104,11 @@ header nav[aria-expanded="false"] .nav-hamburger-icon::after {
 }
 
 header nav[aria-expanded="false"] .nav-hamburger-icon::before {
-  top: -6px;
+  top: -8px;
 }
 
 header nav[aria-expanded="false"] .nav-hamburger-icon::after {
-  top: 6px;
+  top: 8px;
 }
 
 header nav[aria-expanded="true"] .nav-hamburger-icon {
