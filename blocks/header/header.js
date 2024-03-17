@@ -110,8 +110,13 @@ export default async function decorate(block) {
   const navBrand = nav.querySelector('.nav-brand');
   const brandLink = navBrand.querySelector('.button');
   if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
+    const brandText = navBrand.textContent;
+    brandLink.className = 'nav-logo-link';
+    brandLink.innerHTML = `
+      <img src="/logos/logo.svg" alt="${brandText}" class="nav-logo" width="135" height="22">
+      <span class="visually-hidden">${brandText}</span>
+    `
+    brandLink.closest('.button-container').className = 'nav-logo-container';
   }
 
   const navSections = nav.querySelector('.nav-sections');
