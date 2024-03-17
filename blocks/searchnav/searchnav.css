@@ -9,6 +9,15 @@
   border-radius: 0;
 }
 
+@media (width >= 1024px) {
+  .searchnav-button {
+    border: none;
+    display: inline-block;
+    width: auto;
+    height: auto;
+  }
+}
+
 .searchnav-button:hover,
 .searchnav-button:focus {
   background: none;
