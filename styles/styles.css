@@ -212,3 +212,8 @@ main .section.highlight {
 .carousel-container {
   padding: 0 !important;
 }
+
+.tabs-container {
+  margin: 0 !important;
+  padding: 0 30px !important;
+}

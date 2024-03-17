@@ -1,12 +1,14 @@
 .tabs .tabs-list {
   display: flex;
-  gap: 8px;
+  gap: 3px;
   max-width: 100%;
+  justify-content: center;
   overflow-x: auto;
 }
 
 .tabs .tabs-list button {
-  flex: 0 0 max-content;
+  display: flex;
+  align-items: center;
   margin: 0;
   border: 1px solid var(--dark-color);
   border-radius: 0;
@@ -20,27 +22,90 @@
   text-overflow: unset;
   overflow: unset;
   white-space: unset;
-  transition: background-color 0.2s;
+  text-align: center;
 }
 
 .tabs .tabs-list button[aria-selected="true"] {
-  border-bottom: 1px solid var(--background-color);
   background-color: var(--background-color);
   cursor: initial;
+  border: 2px solid #0049ab;
+  color: #0049ab;
+  border-bottom: none;
+  font-size: 1rem;
 }
 
-.tabs .tabs-list button[aria-selected="false"]:hover,
-.tabs .tabs-list button[aria-selected="false"]:focus {
-  background-color: var(--dark-color);
+.tabs .tabs-list button[aria-selected="false"] {
+  background: #0049ab;
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 3px;
 }
+
+#tab-contact-sales[aria-selected="false"]::before {
+    content: url('/icons/headphones-white.svg');
+    margin: 5px 5px 0 0;
+}
+
+ #tab-contact-sales[aria-selected="true"]::before {
+    content: url('/icons/headphones-blue.svg');
+    margin: 5px 5px 0 0;
+}
+
+#tab-contact-support[aria-selected="false"]::before {
+    content: url('/icons/gear-white.svg');
+    margin: 5px 5px 0 0;
+}
+
+ #tab-contact-support[aria-selected="true"]::before {
+    content: url('/icons/gear-blue.svg');
+    margin: 5px 5px 0 0;
+}
+
 
 .tabs .tabs-panel {
   margin-top: -1px;
-  padding: 0 16px;
-  border: 1px solid var(--dark-color);
+  padding: 16px 0 0 0;
+  border-top: 1px solid #0049ab;
   overflow: auto;
+}
+
+.tabs .tabs-panel p {
+  margin: 0;
+  font-size: 0.875rem;
+  font-family: system-ui;
+  font-weight: 500;
+  color: #000;
+}
+
+.tabs .tabs-panel h3 {
+  margin: 0 0 9px;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  color: #000;
+  font-family: system-ui;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
 }
 
 .tabs .tabs-panel[aria-hidden="true"] {
   display: none;
+}
+
+.tabs-container {
+  margin: 30px 30px 50px 30px;
+}
+
+.icon.icon-headphone svg {
+    fill: red; /* Change this to the color you want */
+}
+
+#contact-sales::before {
+    content: url('/icons/mail.svg');
+    margin: 5px 5px 0 0;
+}
+
+#contact-support::before {
+    content: url('/icons/mail.svg');
+    margin: 5px 5px 0 0;
 }
