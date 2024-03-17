@@ -223,3 +223,7 @@ main .section.highlight {
   white-space: nowrap;
   width: 1px;
 }
+.tabs-container {
+  margin: 0 !important;
+  padding: 0 30px !important;
+}
