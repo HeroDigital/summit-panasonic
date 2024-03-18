@@ -202,7 +202,7 @@
 }
 
 
-@media (width >= 768px) {
+@media (width > 767px) {
   .carousel .carousel-slides {
     display: grid;
     grid-template-columns: 2fr 1fr;
