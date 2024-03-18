@@ -155,7 +155,6 @@ header nav .nav-sections {
   flex: 1 1 auto;
   display: none;
   visibility: hidden;
-  background-color: var(--overlay-color);
 }
 
 @media (width >= 1024px) {
@@ -175,19 +174,37 @@ header nav .nav-sections ul  {
   padding-left: 0;
   font-size: var(--body-font-size-s);
   font-weight: 500;
+  margin-top: 0;
 }
 
-header nav .nav-sections ul > li {
-  font-weight: 700;
-}
+
 
 header nav .nav-sections ul > li > ul {
-  color: black;
   margin-top: 0;
 }
 
 header nav .nav-sections ul > li > ul > li {
+  color: black;
   font-weight: 500;
+}
+
+header nav .nav-sections ul > li > ul > li > ul{
+  display: none;
+}
+
+@media (width >= 1024px) {
+  header nav .nav-sections ul > li > ul > li > ul{
+    display: block;
+  }
+}
+
+header nav .nav-sections .default-content-wrapper > ul > li > ul {
+  display: none;
+  position: relative;
+}
+
+header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded="true"] > ul {
+  display: block;
 }
 
 @media (width >= 1024px) {
@@ -237,13 +254,7 @@ header nav .nav-sections ul > li > ul > li {
     font-weight: 500;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul {
-    display: none;
-    position: relative;
-  }
-
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded="true"] > ul {
-    display: block;
     position: absolute;
     left: 0;
     top: 66px;
