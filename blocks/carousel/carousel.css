@@ -263,28 +263,36 @@
     height: 70vh;
   }
 
+  .carousel.secondary .carousel-slides-container {
+    height: 100%;
+  }
+
   .carousel.secondary .carousel-slides {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr 0.5fr 1fr;
+    grid-template-rows: 1fr 0.6fr 1fr;
     grid-column-gap: 2px;
     grid-row-gap: 0px;
   }
 
   .carousel.secondary .carousel-slides #carousel-2-slide-0 {
     grid-area: 1 / 1 / 3 / 2;
+    height: 550px;
   }
 
   .carousel.secondary .carousel-slides #carousel-2-slide-1 {
     grid-area: 3 / 1 / 4 / 2;
+    height: 340px;
   }
 
   .carousel.secondary .carousel-slides #carousel-2-slide-2 {
     grid-area: 1 / 2 / 2 / 3;
+    height: 350px;
   }
 
   .carousel.secondary .carousel-slides #carousel-2-slide-3 {
     grid-area: 2 / 2 / 4 / 3;
+    height: 550px;
   }
 
 }
