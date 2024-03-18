@@ -114,7 +114,7 @@ export default async function decorate(block) {
     brandLink.innerHTML = `
       <img src="/logos/logo.svg" alt="${brandText}" class="nav-logo" width="135" height="22">
       <span class="visually-hidden">${brandText}</span>
-    `
+    `;
     brandLink.closest('.button-container').className = 'nav-logo-container';
   }
 
@@ -122,12 +122,12 @@ export default async function decorate(block) {
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) {
-        navSection.classList.add('nav-drop')
+        navSection.classList.add('nav-drop');
       }
       if (navSection.classList.contains('nav-drop')) {
         const sectionText = navSection.childNodes[0];
         const divElement = document.createElement('div');
-        divElement.classList.add('section-heading')
+        divElement.classList.add('section-heading');
         divElement.innerHTML = sectionText.textContent;
         sectionText.remove();
         navSection.prepend(divElement);

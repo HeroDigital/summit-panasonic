@@ -3,11 +3,6 @@
  * @param {Element} block The incoming block element
  */
 export default async function decorate(block) {
-  console.log(block);
-
-  // media query match that indicates mobile/tablet width
-  const isDesktop = window.matchMedia("(min-width: 900px)");
-
   if (block) {
     block.innerHTML = `
       <button class="searchnav-button" aria-label="Search">
