@@ -2,7 +2,7 @@ import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
-const isDesktop = window.matchMedia('(min-width: 900px)');
+const isDesktop = window.matchMedia('(min-width: 1024px)');
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -58,7 +58,6 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   const button = nav.querySelector('.nav-hamburger button');
   document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-  toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
   // enable nav dropdown keyboard accessibility
   const navDrops = navSections.querySelectorAll('.nav-drop');
@@ -110,20 +109,33 @@ export default async function decorate(block) {
   const navBrand = nav.querySelector('.nav-brand');
   const brandLink = navBrand.querySelector('.button');
   if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
+    const brandText = navBrand.textContent;
+    brandLink.className = 'nav-logo-link';
+    brandLink.innerHTML = `
+      <img src="/logos/logo.svg" alt="${brandText}" class="nav-logo" width="135" height="22">
+      <span class="visually-hidden">${brandText}</span>
+    `;
+    brandLink.closest('.button-container').className = 'nav-logo-container';
   }
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+      if (navSection.querySelector('ul')) {
+        navSection.classList.add('nav-drop');
+      }
+      if (navSection.classList.contains('nav-drop')) {
+        const sectionText = navSection.childNodes[0];
+        const divElement = document.createElement('div');
+        divElement.classList.add('section-heading');
+        divElement.innerHTML = sectionText.textContent;
+        sectionText.remove();
+        navSection.prepend(divElement);
+      }
       navSection.addEventListener('click', () => {
-        if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
+        const expanded = navSection.getAttribute('aria-expanded') === 'true';
+        toggleAllNavSections(navSections);
+        navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
       });
     });
   }

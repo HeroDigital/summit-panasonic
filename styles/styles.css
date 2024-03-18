@@ -15,6 +15,7 @@
   --link-color: #035fe6;
   --link-hover-color: #136ff6;
   --background-color: white;
+  --background-color--header: #0049ab;
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
@@ -213,6 +214,15 @@ main .section.highlight {
   padding: 0 !important;
 }
 
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
 .tabs-container {
   margin: 0 !important;
   padding: 0 30px !important;
