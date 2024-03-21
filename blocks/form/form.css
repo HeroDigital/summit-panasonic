@@ -2,7 +2,7 @@
   display: grid;
   grid-auto-flow: row;
   align-items: center;
-  padding: 8px;
+  margin-bottom: 15px;
 }
 
 .form fieldset {
@@ -13,28 +13,58 @@
   padding: 0;
 }
 
-@media (width >= 900px) {
-  .form fieldset {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-}
-
-.form fieldset > legend {
-  font-weight: 700;
-  font-size: var(--heading-font-size-xs);
-}
-
 .form label {
-  font-weight: 700;
-  font-size: var(--body-font-size-xs);
-  margin-bottom: 0.25em;
+  color: #717171;
+  font-weight: 500;
+  font-size: 0.77rem;
+  margin-bottom: 10px;
+}
+
+.form .select-wrapper label::after, .form .text-wrapper label::after, .form .email-wrapper label::after {
+  content: "*";
+  color: red;
+}
+
+.form .requiredfieldset fieldset > legend {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #717171;
+}
+
+.form .requiredfieldset fieldset > legend::before {
+  content: "*";
+  color: red;
+  margin-right: 5px;
+}
+
+.form .requiredfieldset fieldset > legend {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #717171;
+}
+
+.form .productType fieldset > legend {
+  margin: 0 0 15px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #717171;
+}
+
+.form .formsection {
+  padding: 0 0 0 20px;
+  background: #F0F0F0;
+}
+
+.form .formsection fieldset > legend {
+  line-height: 2.5rem;
+  font-size: 1rem;
+  color: #717171;
+  font-weight: bold;
 }
 
 .form input,
 .form select,
 .form textarea {
-  font-size: var(--body-font-size-s);
   width: 100%;
   max-width: 50rem;
   display: block;
@@ -42,8 +72,18 @@
   border-radius: 4px;
   box-sizing: border-box;
   border: 1px solid var(--text-color);
-  color: var(--text-color);
-  background-color: var(--background-color);
+  font-size: 1rem;
+  background: #fff;
+  color: #000;
+  font-weight: 500;
+}
+
+.form .select-wrapper select, .form .email-wrapper input, .form .text-wrapper input, .form .textarea-wrapper input {
+  border: 2px solid #717171;
+  border-radius: 0;
+  height: 50px;
+  width: 100%;
+  padding: 0 46px 0 20px;
 }
 
 .form textarea {
@@ -51,7 +91,15 @@
 }
 
 .form .selection-wrapper input {
-  width: 16px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.form .selection-wrapper input[type="radio"] {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
 }
 
 .form .selection-wrapper label {
@@ -71,7 +119,7 @@
 .form .field-wrapper.selection-wrapper {
   grid-auto-flow: column;
   justify-content: start;
-  gap: 16px;
+  gap: 10px;
 }
 
 .form .field-wrapper > label {
@@ -82,11 +130,11 @@
   order: 1;
 }
 
-.form input[required] + label::after {
+/* .form input[required] + label::after {
   content: "*";
   color: firebrick;
   margin-inline-start: 1ch;
-}
+} */
 
 .form .toggle-wrapper .switch {
   position: relative;
@@ -133,4 +181,41 @@
 
 .form .toggle-wrapper input:checked + .slider::before {
   transform: translateX(24px);
+}
+
+#form-producttypefs label {
+  font-size: 1rem;
+  text-transform: none;
+  font-weight: 400;
+}
+
+.form .privacy fieldset > legend, .form #form-signup-label {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #717171;
+}
+
+.form .submit-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.form .submit-wrapper button {
+  font-size: 1rem;
+  line-height: 3rem;
+  max-width: 100%;
+  width: 100%;
+  margin-top: 20px;
+  height: 3rem;
+  background: #488400;
+  color: #fff;
+  border-radius: 0;
+}
+
+@media (width > 767px) {
+  form {
+    margin: 0 auto;
+    max-width: 583px;
+  }
 }
